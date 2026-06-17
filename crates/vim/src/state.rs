@@ -165,6 +165,8 @@ pub enum Operator {
         replaced_char: Option<char>,
     },
     HelixSurroundDelete,
+    HelixSurroundInside,
+    HelixSurroundAround,
     HelixJump {
         behaviour: HelixJumpBehaviour,
         first_char: Option<char>,
@@ -1118,6 +1120,8 @@ impl Operator {
             Operator::HelixSurroundAdd => "helix_ms",
             Operator::HelixSurroundReplace { .. } => "helix_mr",
             Operator::HelixSurroundDelete => "helix_md",
+            Operator::HelixSurroundInside => "helix_mi",
+            Operator::HelixSurroundAround => "helix_ma",
         }
     }
 
@@ -1200,6 +1204,7 @@ impl Operator {
             Operator::HelixSurroundAdd
             | Operator::HelixSurroundReplace { .. }
             | Operator::HelixSurroundDelete => true,
+            Operator::HelixSurroundInside | Operator::HelixSurroundAround => false,
         }
     }
 
@@ -1246,6 +1251,8 @@ impl Operator {
             | Operator::RecordRegister
             | Operator::ReplayRegister
             | Operator::HelixMatch
+            | Operator::HelixSurroundInside
+            | Operator::HelixSurroundAround
             | Operator::HelixJump { .. } => false,
         }
     }

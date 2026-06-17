@@ -268,6 +268,10 @@ actions!(
         PushHelixSurroundReplace,
         /// Deletes surrounding characters in Helix mode.
         PushHelixSurroundDelete,
+        /// Matches inside surrounding characters in Helix mode.
+        PushHelixSurroundInside,
+        /// Matches around surrounding characters in Helix mode.
+        PushHelixSurroundAround,
     ]
 );
 
