@@ -571,6 +571,12 @@ impl Vim {
             Some(Operator::HelixPrevious { around }) => {
                 self.select_previous_object(object, around, window, cx);
             }
+            Some(Operator::HelixSurroundInside) => {
+                self.select_current_object(object, false, window, cx);
+            }
+            Some(Operator::HelixSurroundAround) => {
+                self.select_current_object(object, true, window, cx);
+            }
             Some(Operator::DeleteSurrounds) => {
                 waiting_operator = Some(Operator::DeleteSurrounds);
             }

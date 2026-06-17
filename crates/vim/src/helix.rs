@@ -24,7 +24,8 @@ use workspace::searchable::{self, Direction, FilteredSearchRange};
 use crate::motion::{self, MotionKind};
 use crate::state::{HelixJumpBehaviour, HelixJumpLabel, Mode, Operator, SearchState};
 use crate::{
-    PushHelixSurroundAdd, PushHelixSurroundDelete, PushHelixSurroundReplace, Vim,
+    PushHelixSurroundAdd, PushHelixSurroundDelete, PushHelixSurroundReplace,
+    PushHelixSurroundInside, PushHelixSurroundAround, Vim,
     motion::{Motion, right},
 };
 use std::ops::Range;
@@ -113,6 +114,22 @@ pub fn register(editor: &mut Editor, cx: &mut Context<Vim>) {
         |vim, _: &PushHelixSurroundDelete, window, cx| {
             vim.clear_operator(window, cx);
             vim.push_operator(Operator::HelixSurroundDelete, window, cx);
+        },
+    );
+    Vim::action(
+        editor,
+        cx,
+        |vim, _: &PushHelixSurroundInside, window, cx| {
+            vim.clear_operator(window, cx);
+            vim.push_operator(Operator::HelixSurroundInside, window, cx);
+        },
+    );
+    Vim::action(
+        editor,
+        cx,
+        |vim, _: &PushHelixSurroundAround, window, cx| {
+            vim.clear_operator(window, cx);
+            vim.push_operator(Operator::HelixSurroundAround, window, cx);
         },
     );
 }

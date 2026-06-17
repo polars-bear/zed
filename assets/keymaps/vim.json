@@ -616,7 +616,7 @@
     },
   },
   {
-    "context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == helix_next || vim_operator == helix_previous",
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == helix_next || vim_operator == helix_previous || vim_operator == helix_mi || vim_operator == helix_ma",
     "bindings": {
       "w": "vim::Word",
       "shift-w": ["vim::Word", { "ignore_punctuation": true }],
@@ -654,12 +654,20 @@
     },
   },
   {
+    "context": "vim_operator == helix_mi || vim_operator == helix_ma",
+    "bindings": {
+      "m": "vim::AnyBrackets",
+    },
+  },
+  {
     "context": "vim_operator == helix_m",
     "bindings": {
       "m": ["vim::Matching", { "match_quotes": true }],
       "s": "vim::PushHelixSurroundAdd",
       "r": "vim::PushHelixSurroundReplace",
       "d": "vim::PushHelixSurroundDelete",
+      "i": "vim::PushHelixSurroundInside",
+      "a": "vim::PushHelixSurroundAround",
     },
   },
   {
