@@ -137,7 +137,6 @@ impl HelixTextObject for HelixAnyBrackets {
             ImmediateBoundary::AngleBrackets,
             ImmediateBoundary::DoubleQuotes,
             ImmediateBoundary::SingleQuotes,
-            ImmediateBoundary::BackQuotes,
         ];
         bracket_types
             .iter()
